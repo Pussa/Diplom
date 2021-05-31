@@ -13,4 +13,5 @@ interface MainMenuView: MvpView {
     fun showLoading(isShow: Boolean)
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun showComputers(rockets: List<Computer>)
+
 }

@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val fragmentManager = supportFragmentManager
         fragmentManager.beginTransaction()
-                .add(R.id.container, DisplaysFragment())
-                .commit()
+            .add(R.id.container, DisplaysFragment())
+            .addToBackStack(null)
+            .commit()
     }
 }

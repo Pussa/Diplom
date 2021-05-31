@@ -9,6 +9,7 @@ import moxy.MvpPresenter
 import moxy.presenterScope
 
 class ComputersPresentation(private val getComputerUseCase: GetComputerUseCase): MvpPresenter<MainMenuView>(){
+    lateinit var computersList: MutableList<Computer>
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -18,9 +19,14 @@ class ComputersPresentation(private val getComputerUseCase: GetComputerUseCase):
             Log.e("tag",throwable.message,throwable)
         }) {
             val computers = getComputerUseCase()
+            computersList = computers.toMutableList()
             viewState.showComputers(computers.sort())
             viewState.showLoading(isShow = false)
         }
     }
     fun List<Computer>.sort(): List<Computer> = this.sortedBy { it.cpu }
+
+    fun filterComputers(name:String) {
+        viewState.showComputers(computersList.filter { it.name.contains(name, ignoreCase = true) })
+    }
 }

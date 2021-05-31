@@ -59,4 +59,6 @@ class DisplaysFragment: MvpAppCompatFragment(R.layout.fragment_main_menu), MainM
         TODO("Not yet implemented")
     }
 
+
+
 }
