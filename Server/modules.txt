@@ -1,0 +1,5 @@
+bs4
+pony
+fastapi
+uvicorn
+aiofiles
